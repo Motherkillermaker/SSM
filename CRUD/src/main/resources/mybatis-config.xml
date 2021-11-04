@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--	1.mybatis可以使用properties来引入外部配置文件-->
+    <properties resource="jdbc.properties"></properties>
+    <!--	2.settings包含许多重要设置项-->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+
+    <!--	3.别名处理器typeAliases(默认为类名首字母小写/别名不区分大小写)-->
+    <typeAliases>
+        <package name="com.atguigu.crud.bean"/>
+    </typeAliases>
+
+    <!--	插件的注册-->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <!-- 分页参数合理化-->
+            <property name="reasonable" value="true"/>
+        </plugin>
+    </plugins>
+
+
+
+
+</configuration>
